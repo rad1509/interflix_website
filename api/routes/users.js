@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const User = require("../models/User");
-const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
 
 
@@ -9,7 +8,7 @@ router.put("/:id", verify, async (req, res) => {
     if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
         req.body.password,
-        process.env.SECRET_KEY
+        "amrit"
       ).toString();
     }
 
